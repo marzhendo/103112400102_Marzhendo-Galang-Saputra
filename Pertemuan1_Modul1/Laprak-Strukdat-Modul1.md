@@ -142,10 +142,10 @@ Hasil perkalian adalah 500.0
 Hasil pembagian adalah 5.0
 
 ##### Output 1
-![Screenshot Output Unguided 1_1](Pertemuan1_Modul1/Screenshot/Output-Unguided1-Modul1.png)
+![Screenshot Output Unguided 1_1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan1_Modul1/Screenshot/Output-Unguided1-Modul1.png)
 
 ##### Output 2
-![Screenshot Output Unguided 1_2](Pertemuan1_Modul1/Screenshot/Output-Unguided1_2Modul1.png)
+![Screenshot Output Unguided 1_2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan1_Modul1/Screenshot/Output-Unguided1_2Modul1.png)
 
 Unguided 1 adalah program untuk melakukan operasi aritmatika dasar seperti (+, -, *, /),
 user diminta menginput 2 angka melalui variabel a1, dan a2. Lalu library <stdio.h> digunakan agar dapat menggunakan printf supaya output bisa desimal dibelakang angka.
@@ -201,10 +201,10 @@ Input angka (0-100): 79
 Hasil setelah diubah: tujuh puluh sembilan
 
 ##### Output 1
-![Screenshot Output Unguided 2_1](Pertemuan1_Modul1/Screenshot/Output-Unguided2-Modul1.png)
+![Screenshot Output Unguided 2_1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan1_Modul1/Screenshot/Output-Unguided2-Modul1.png)
 
 ##### Output 2
-![Screenshot Output Unguided 2_2](Pertemuan1_Modul1/Screenshot/Output-Unguided2_2-Modul1.png)
+![Screenshot Output Unguided 2_2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan1_Modul1/Screenshot/Output-Unguided2_2-Modul1.png)
 
 Unguided 2 adalah program untuk mengubah nilai integer ke string. Program ini meminta inputan dalam rentang 0 - 100 dan mengkonversinya jadi string menggunakan func angkaKeTulisan. fungsi bekerja dengan 5 kondisi yang berbeda. kondisi pertama memeriksa angka apakah angka dalam rentang 0 - 100? jika iya maka kondisi ini akan diabaikan, jika tidak maka akan mengeksekusi ""Error! Batas inputan adalah 0 - 100.".  kondisi kedua akan memeriksa apakah angka dalam rentang 0 - 11, jika iya maka akan langsung return value dari array menyesuaikan satuan sesuai index angka tersebut. kondisi ketiga untuk angka 12-19. logic % 10 akan mengambil digit terakhir dari angka dan menjadikan digit tersebut untuk mengakses value di dalam array. misal 13 % 10 = 1 sisa 3. angka 3 ini akan diambil untuk mengakses array index ke 3 dan setelah dapat valuenya nantinya akan ditambah string " belas". kondisi keempat untuk angka 20 - 99, operator / digunakan untuk mengambil digit awal, dan operator % digunakan untuk mengambil digit akhir. untuk operator % akan tereksekusi dengan kondisi jika digit yang dimodulus tidak habis atau != 0. misal 58 akan return "lima puluh delapan" karena 58/10=5 menghasilkan "lima puluh" dan 58 % 10 = 8 menambahkan "delapan". kondisi terakhir untuk angka 100 akan mereturn "seratus".
 
@@ -255,10 +255,10 @@ Output:
      1 * 1
        *
 ##### Output 1
-![Screenshot Output Unguided 3_1](Pertemuan1_Modul1/Screenshot/Output-Unguided3-Modul1.png)
+![Screenshot Output Unguided 3_1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan1_Modul1/Screenshot/Output-Unguided3-Modul1.png)
 
 ##### Output 2
-![Screenshot Output Unguided 3_2](Pertemuan1_Modul1/Screenshot/Output-Unguided3_2-Modul1.png)
+![Screenshot Output Unguided 3_2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan1_Modul1/Screenshot/Output-Unguided3_2-Modul1.png)
 
 Unguided 3 adalah program yang berfungsi untuk mencetak pola piramida tapi terbalik. Polanya terdiri dari dua bagian angka yang dicetak simetris, dipisahkan dengan tanda *, dan diakhiri dengan satu tanda * di baris terakhir. Pola ini dimulai dari angka n(input), dan menurun hingga 1 di setiap baris, dengan tambahan spasi yang bertambah di awal setiap baris baru.
 
