@@ -298,13 +298,10 @@ Hasil perkalian matriks 3x3 :
 84 76 80 
 
 ##### Output 1
-![Screenshot Output Unguided 1_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
-
-contoh :
-![Screenshot Output Unguided 1_1](https://github.com/DhimazHafizh/2311102151_Muhammad-Dhimas-Hafizh-Fathurrahman/blob/main/Pertemuan1_Modul1/Output-Unguided1-1.png)
+![Screenshot Output Unguided 1_1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan2_Modul2/Screenshot/Modul2-Unguided1.1.png)
 
 ##### Output 2
-![Screenshot Output Unguided 1_2](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 1_2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan2_Modul2/Screenshot/Modul2-Unguided1.2.png)
 
 Unguided 1 adalah contoh implementasi array 2 dimensi untuk melakukan berbagai operasi aritmatika pada matriks berukuran 3x3. Pertama program mendeklarasikan dan menginisiaisasi beberapa variabel array, yaitu arrA dan arrB yg berisi nilai awal, serta arrC, arrD, dan arrE untuk menampung hasil. Setelahnya, program melakukan operasi penjumlahan matriks arrA dan arrB yg hasilnya disimpan pada arrC, lalu dilanjutkan dengan operasi pengurangan yg hasilnya disimpan pada arrD. Terakhir, program melakukan operasi perkalian matriks menggunakan tiga lapis perulangan for dan menyimpan hasilnya pada arrE. Setiap hasil dari ketiga opearsi aritmatika tersebut kemudian ditampilkan ke layar secara berurutan dengan menggunakan procedure tampilkanHasil() yg sama.
 
@@ -395,13 +392,10 @@ Nilai b: 30
 Nilai c: 15
 
 ##### Output Unguided 2 - pointer
-![Screenshot Output Unguided 2_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
-
-contoh :
-![Screenshot Output Unguided 2_1](https://github.com/DhimazHafizh/2311102151_Muhammad-Dhimas-Hafizh-Fathurrahman/blob/main/Pertemuan1_Modul1/Output-Unguided2-1.png)
+![Screenshot Output Unguided 2_1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan2_Modul2/Screenshot/Modul2-Unguided2-pointer.png)
 
 ##### Output Unguided 2 - reference
-![Screenshot Output Unguided 2_2](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 2_2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan2_Modul2/Screenshot/Modul2-Unguided2-reference.png)
 
 Unguided 2 - pointer adalah program untuk mendemonstrasikan penggunaan pointer untuk menampilkan informasi alamat memori dan menukar tiga nilai secara berulang melalui sebuah prosedur. Pertama, program menunjukkan cara kerja dasar pointer dengan menampilkan nilai dan alamat dari variabel a, lalu membandingkannya dengan alamat yang disimpan oleh pointer ptr. Setelah itu, program memanggil prosedur tukar dengan mengirimkan alamat dari tiga variabel (a, b, c). Prosedur ini kemudian menggunakan pointer untuk menukar nilai ketiga variabel tersebut secara langsung di memorinya, dimana nilai a digantikan b, b digantikan c, dan c digantikan oleh nilai a semula. Hasil akhir dari penukaran nilai ini kemudian ditampilkan ke layar.
 
@@ -538,13 +532,15 @@ Rata-rata: 21.4
 Pilihanmu: 5
 Program Ditutup.
 ##### Output 1
-![Screenshot Output Unguided 3_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
-
-contoh :
-![Screenshot Output Unguided 3_1](https://github.com/DhimazHafizh/2311102151_Muhammad-Dhimas-Hafizh-Fathurrahman/blob/main/Pertemuan1_Modul1/Output-Unguided3-1.png)
-
+![Screenshot Output Unguided 3_1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan2_Modul2/Screenshot/Modul2-Unguided3.1.png)
 ##### Output 2
-![Screenshot Output Unguided 3_2](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 3_2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan2_Modul2/Screenshot/Modul2-Unguided3.2.png)
+##### Output 3
+![Screenshot Output Unguided 3_3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan2_Modul2/Screenshot/Modul2-Unguided3.3.png)
+##### Output 4
+![Screenshot Output Unguided 3_4](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan2_Modul2/Screenshot/Modul2-Unguided3.4.png)
+##### Output 5
+![Screenshot Output Unguided 3_5](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan2_Modul2/Screenshot/Modul2-Unguided3.5.png)
 
 Unguided 3 sebuah implementasi yang membedakan antara func yang mengembalikan return dan procedure yang hanya menjalankan sebuah aksi.
 
