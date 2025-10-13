@@ -175,7 +175,7 @@ NIM: 2
 Nilai Akhir: 51.9 
 
 ##### Output 1
-![Screenshot Output Unguided 1_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 1_1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan3_Modul3/Screenshot/modul3-unguided1.png)
 
 
 Program Unguided 1 ini adalah contoh implementasi penggunaan struct dan array of struct untuk mengelola data mahasiswa. Pertama, program mendefinisikan sebuah struct bernama Mahasiswa yang berfungsi untuk menyimpan data individu, dari nama, nim, serta nilai uts, uas, dan tugas.
@@ -250,11 +250,7 @@ Nama pelajaran : Struktur Data
 Kode pelajaran : STD
 
 ##### Output Unguided 2 
-![Screenshot Output Unguided 2_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
-
-contoh :
-![Screenshot Output Unguided 2_1](https://github.com/DhimazHafizh/2311102151_Muhammad-Dhimas-Hafizh-Fathurrahman/blob/main/Pertemuan1_Modul1/Output-Unguided2-1.png)
-
+![Screenshot Output Unguided 2_1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan3_Modul3/Screenshot/modul3-unguided2.png)
 
 
 Program Unguided 2 ini merupakan contoh implementasi dasar dari Abstract Data Type (ADT) menggunakan struct dalam bahasa C++ yang dipisahkan ke dalam beberapa file. Tujuannya adalah untuk mendemonstrasikan konsep modularitas, di mana deklarasi, implementasi, dan program utama ditempatkan pada file yang berbeda.
@@ -347,11 +343,7 @@ Array B Setelah Tukar [1][1]:
 Nilai Awal -> X: 100, Y: 200
 Nilai Akhir -> X: 200, Y: 100
 ##### Output 1
-![Screenshot Output Unguided 3_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
-
-contoh :
-![Screenshot Output Unguided 3_1](https://github.com/DhimazHafizh/2311102151_Muhammad-Dhimas-Hafizh-Fathurrahman/blob/main/Pertemuan1_Modul1/Output-Unguided3-1.png)
-
+![Screenshot Output Unguided 3_1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan3_Modul3/Screenshot/modul3-unguided3.png)
 
 Program Unguided 3 ini dibuat untuk menunjukkan dua cara berbeda dalam menukar nilai antar variabel menggunakan fungsi, yaitu dengan menukar elemen array secara langsung dan dengan menukar nilai melalui pointer (penunjuk alamat memori).
 
