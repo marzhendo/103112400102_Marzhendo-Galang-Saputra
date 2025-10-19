@@ -434,9 +434,9 @@ Program Guided 2 ini menunjukkan cara penggunaan konsep ADT di C++ untuk mengatu
 ### 1. Soal Unguided 1
 
 
-![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.1.png]
-![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.2.png]
-![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.3.png]
+(https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.1.png)
+(https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.2.png)
+(https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.3.png)
 
 ## Singlylist.h
 ```Singlylist.h
@@ -553,7 +553,7 @@ int main() {
 ```
 
 ##### Output 1
-![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/output_soal1_modul4.png]
+(https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/output_soal1_modul4.png)
 
 
 Program Unguided 1 ini adalah mendemonstrasikan operasi dasar insertion (pemasukan) dan deletion (penghapusan) pada sebuah Single Linked List. Awalnya, di Soal 1, sebuah list kosong L dibuat. Kemudian, program mengalokasikan lima node (P1 hingga P5) dengan nilai 2, 0, 8, 12, dan 9. Semua node ini dimasukkan ke dalam list menggunakan fungsi insertFirst, yang menyebabkan setiap node baru "menyelak" ke posisi paling depan. Hasilnya, urutan list menjadi terbalik dari urutan pemasukan, yaitu 
@@ -564,7 +564,7 @@ Program Unguided 1 ini adalah mendemonstrasikan operasi dasar insertion (pemasuk
 ### 2. Soal Unguided 2
 
 ```
-![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal2_modul4.png]
+(https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal2_modul4.png)
 ```
 
 ## Singlylist.h
@@ -775,7 +775,7 @@ Jumlah node : 2
 Jumlah node : 0
 ```
 ##### Output Unguided 2 
-![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/output_soal2_modul4.png]
+(https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/output_soal2_modul4.png)
 
 Program Unguided 2 ini melakukan tiga operasi penghapusan pada list tersebut. Pertama, deleteFirst digunakan untuk menghapus node 9 (elemen pertama). Kedua, deleteLast menghapus node 2 (elemen terakhir). Ketiga, deleteAfter menghapus node 8, yang berada setelah node 12. Setelah tiga penghapusan ini, program mencetak isi list yang tersisa (12 0) dan jumlah nodenya (Jumlah node : 2). Terakhir, fungsi deleteList dipanggil untuk menghapus semua node yang tersisa di memori, dan program mengonfirmasi keberhasilannya dengan mencetak jumlah node akhir, yaitu 0.
 
