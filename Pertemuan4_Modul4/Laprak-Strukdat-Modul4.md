@@ -64,7 +64,7 @@ void insertLast(linkedlist &List, address nodeBaru);
 #endif
 
 ```
-##list.cpp
+## list.cpp
 ```list.cpp
 #include <iostream>
 #include "list.h"
@@ -139,7 +139,7 @@ void printlist(linkedlist List) {
 }
 
 ```
-##main.cpp
+## main.cpp
 ```main.cpp
 #include "list.h"
 
