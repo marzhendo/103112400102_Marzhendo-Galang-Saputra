@@ -563,9 +563,8 @@ Program Unguided 1 ini adalah mendemonstrasikan operasi dasar insertion (pemasuk
 
 ### 2. Soal Unguided 2
 
-```
 ![Screenshot Soal 2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal2_modul4.png)
-```
+
 
 ## Singlylist.h
 ```Singlylist.h
