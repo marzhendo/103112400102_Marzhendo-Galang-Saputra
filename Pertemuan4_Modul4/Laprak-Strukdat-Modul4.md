@@ -23,6 +23,7 @@ Tujuan utama dari penggunaan Single Linked List adalah untuk mempermudah pengelo
 
 ### 1. Guided 1
 
+## list.h
 ```list.h
 #ifndef LIST_H
 #define LIST_H
@@ -63,6 +64,7 @@ void insertLast(linkedlist &List, address nodeBaru);
 #endif
 
 ```
+##list.cpp
 ```list.cpp
 #include <iostream>
 #include "list.h"
@@ -137,6 +139,7 @@ void printlist(linkedlist List) {
 }
 
 ```
+##main.cpp
 ```main.cpp
 #include "list.h"
 
@@ -171,6 +174,7 @@ Program Guided 1 ini adalah implementasi dari konsep Abstract Data Type (ADT) da
 
 ### 2. Guided 2
 
+## list.h
 ```list.h
 #ifndef LIST_H
 #define LIST_H
@@ -217,6 +221,7 @@ void deleteList(linkedlist &List);
 
 
 ```
+## list.cpp
 ```list.cpp
 #include <iostream>
 #include "list.h"
@@ -373,6 +378,7 @@ void deleteList(linkedlist &List){
 }
 
 ```
+## main.cpp
 ```main.cpp
 #include "list.h"
 
@@ -428,10 +434,11 @@ Program Guided 2 ini menunjukkan cara penggunaan konsep ADT di C++ untuk mengatu
 ### 1. Soal Unguided 1
 
 
-[https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.1.png]
-[https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.2.png]
-[https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.3.png]
+![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.1.png]
+![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.2.png]
+![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.3.png]
 
+## Singlylist.h
 ```Singlylist.h
 #ifndef SINGLYLIST_H
 #define SINGLYLIST_H
@@ -460,6 +467,7 @@ void insertFirst(List &L, address P);
 #endif
 
 ```
+## Singlylist.cpp
 ```Singlylist.cpp
 #include "Singlylist.h"
 
@@ -509,6 +517,7 @@ void insertFirst(List &L, address P) {
 }
 
 ```
+## main.cpp
 ```main.cpp
 #include <iostream>
 #include "Singlylist.h"
@@ -555,9 +564,10 @@ Program Unguided 1 ini adalah mendemonstrasikan operasi dasar insertion (pemasuk
 ### 2. Soal Unguided 2
 
 ```
-https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal2_modul4.png
+![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal2_modul4.png]
 ```
 
+## Singlylist.h
 ```Singlylist.h
 #ifndef SINGLYLIST_H
 #define SINGLYLIST_H
@@ -593,6 +603,7 @@ void deleteList(List &L);
 
 
 ```
+## Singlylist.cpp
 ```Singlylist.cpp
 #include "Singlylist.h"
 
@@ -707,6 +718,7 @@ void deleteList(List &L) {
     }
 }
 ```
+## main.cpp
 ```main.cpp
 #include <iostream>
 #include "Singlylist.h"
