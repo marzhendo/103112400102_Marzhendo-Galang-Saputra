@@ -2,9 +2,11 @@
 <p align="center">Marzhendo Galang Saputra - 103112400102</p>
 
 ## Dasar Teori
-Tipe Data Abstrak (ADT) dapat didefinisikan sebagai model matematika dari objek data yang menyempurnakan tipe data dengan cara mengaitkannya dengan fungsi-fungsi yang beroperasi pada data yang bersangkutan [57]. ADT adalah tipe data yang dibuat oleh pemrogram untuk kemudahan pemrograman serta untuk mengakomodasi tipe data yang tidak diakomodasi oleh bahasa pemrograman yang digunakan [63].
+Single Linked List merupakan salah satu bentuk struktur data dinamis yang terdiri dari rangkaian simpul (node) yang saling terhubung secara sekuensial melalui pointer atau referensi. Setiap simpul pada Single Linked List terdiri atas dua bagian, yaitu bagian data yang menyimpan informasi dan bagian pointer yang menunjuk ke simpul berikutnya dalam daftar. Hubungan satu arah antar simpul inilah yang membedakan Single Linked List dengan jenis list lain seperti Double Linked List atau Circular Linked List [40].
 
-Tujuan utama dari ADT adalah untuk memisahkan struktur penyimpanan dari perilaku abstrak tipe data tersebut[65]. Hal ini memungkinkan ADT menjadi sarana pengembangan sistem yang bersifat modular, di mana pembuat dan pengguna hanya perlu menyepakati interface ADT tanpa perlu membahas detail implementasinya [70, 71].
+Struktur Single Linked List memungkinkan penyimpanan dan pengelolaan data secara dinamis karena ukuran list tidak harus ditentukan di awal program. Penambahan dan penghapusan elemen dapat dilakukan dengan efisien tanpa perlu menggeser data seperti pada array. Hal ini menjadikan Single Linked List sangat berguna untuk aplikasi yang memerlukan manipulasi data secara fleksibel dan sering mengalami perubahan ukuran [41].
+
+Tujuan utama dari penggunaan Single Linked List adalah untuk mempermudah pengelolaan data yang bersifat dinamis dengan efisiensi memori yang lebih baik. Dengan menggunakan pointer, setiap node dapat dialokasikan dan dihapus secara independen selama program berjalan (runtime). Selain itu, struktur ini juga membantu memahami konsep dasar hubungan antar objek dalam memori menggunakan pointer, yang merupakan dasar dari banyak struktur data lanjutan seperti stack, queue, dan tree [42].
 ### A. ...<br/>
 ...
 #### 1. ...
@@ -425,308 +427,350 @@ Program Guided 2 ini menunjukkan cara penggunaan konsep ADT di C++ untuk mengatu
 
 ### 1. Soal Unguided 1
 
-Buat program yang dapat menyimpan data mahasiswa (max. 10) ke dalam sebuah array
-dengan field nama, nim, uts, uas, tugas, dan nilai akhir. Nilai akhir diperoleh dari FUNGSI
-dengan rumus 0.3*uts+0.4*uas+0.3*tugas.
 
-```C++
-//header
-#ifndef MAHASISWA_H
-#define MAHASISWA_H
+[https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.1.png]
+[https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.2.png]
+[https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal1_modul4.3.png]
 
-#include <string>
+```Singlylist.h
+#ifndef SINGLYLIST_H
+#define SINGLYLIST_H
+#define Nil NULL
+#include <iostream>
 using namespace std;
-struct Mahasiswa {
-    string nama;
-    string nim;
-    float uts, uas, tugas;
-    float nilaiAkhir;
+
+typedef int infotype;
+typedef struct ElmList *address;
+
+struct ElmList {
+    infotype info;
+    address next;
 };
 
-void inputMahasiswa(Mahasiswa &m);
-void hitungNilaiAkhir(Mahasiswa &m);
-void tampilMahasiswa(const Mahasiswa &m);
+struct List {
+    address First;
+};
+
+void CreateList(List &L);
+address alokasi(infotype x);
+void dealokasi(address &P);
+void printInfo(List L);
+void insertFirst(List &L, address P);
 
 #endif
 
-//implementasi
+```
+```Singlylist.cpp
+#include "Singlylist.h"
+
+void CreateList(List &L) {
+    //set pointer First ke Nil
+    L.First = Nil;
+}
+
+address alokasi(infotype x) {
+    //buat node baru
+    address P = new ElmList;
+    //isi info dan next
+    P -> info = x;
+    P -> next = Nil;
+    return P;
+}
+
+void dealokasi(address &P) {
+    //hapus node yang ditunjuk P
+    delete P;
+}
+
+void printInfo(List L) {
+    //print info dari setiap node
+    address P = L.First;
+
+    if (P == Nil) {
+        cout << "List Kosong" << endl;
+    } else {
+        //selama P bukan Nil, print info dan geser P ke next
+        while (P != Nil) {
+            //print info diikuti spasi
+            cout << P -> info << " ";
+            //geser P ke node berikutnya
+            P = P -> next;
+        }
+        //jika sudah selesai, baris akan diakhiri dengan newline
+        cout << endl; 
+    }
+}
+
+void insertFirst(List &L, address P) {
+    //arahkan node baru (P) ke node pertama (L.First)
+    P -> next = L.First;
+    //jadikan node baru (P) sebagai node pertama
+    L.First = P;
+}
+
+```
+```main.cpp
 #include <iostream>
-#include "mahasiswa.h"
-using namespace std;
-
-void inputMahasiswa(Mahasiswa &m) {
-    cout << "Nama: ";
-    getline(cin, m.nama);
-    cout << "NIM: ";
-    cin >> m.nim;
-    cout << "UTS: ";
-    cin >> m.uts;
-    cout << "UAS: ";
-    cin >> m.uas;
-    cout << "Tugas: ";
-    cin >> m.tugas;
-    cin.ignore();
-}
-
-void hitungNilaiAkhir(Mahasiswa &m) {
-    m.nilaiAkhir = (0.3 * m.uts) + (0.4 * m.uas) + (0.3 * m.tugas);
-}
-
-void tampilMahasiswa(const Mahasiswa &m) {
-    cout << "Nama: " << m.nama << "\n";
-    cout << "NIM: " << m.nim << "\n";
-    cout << "Nilai Akhir: " << m.nilaiAkhir <<  "\n";
-}
-
-//driver
-#include <iostream>
-#include "mahasiswa.h"
+#include "Singlylist.h"
 using namespace std;
 
 int main() {
-    const int MAX_MAHASISWA = 10;
-    Mahasiswa daftarMhs[MAX_MAHASISWA];
-    int jumlahMhs = 0;
-    cout << "Masukkan jumlah mahasiswa (max 10): ";
-    cin >> jumlahMhs;
-    cin.ignore();
+    List L;
+    address P1, P2, P3, P4, P5 = Nil;
+    CreateList(L);
+    
+    P1 = alokasi(2);
+    insertFirst(L, P1);
 
-    if (jumlahMhs > MAX_MAHASISWA) {
-        jumlahMhs = MAX_MAHASISWA;
-    }
+    P2 = alokasi(0);
+    insertFirst(L, P2);
 
-    for (int i = 0; i < jumlahMhs; i++) {
-        cout << "\nInput Mahasiswa ke-" << i + 1 << ":\n";
-        inputMahasiswa(daftarMhs[i]);
-        hitungNilaiAkhir(daftarMhs[i]);
-    }
+    P3 = alokasi(8);
+    insertFirst(L, P3);
 
-    cout << "\nData Hasil Inputan\n";
-    for (int i = 0; i < jumlahMhs; i++) {
-        cout << "\nData ke-" << i+1 << ":\n";
-        tampilMahasiswa(daftarMhs[i]);
-    }
+    P4 = alokasi(12);
+    insertFirst(L, P4);
+
+    P5 = alokasi(9);
+    insertFirst(L, P5);
+
+    printInfo(L);
+    return 0;
 }
 ```
 ### Output Unguided 1 :
-
-Masukkan jumlah mahasiswa (max 10): 2
-
-Input Mahasiswa ke-1:
-Nama: Fajar
-NIM: 1
-UTS: 89
-UAS: 88
-Tugas: 100
-
-Input Mahasiswa ke-2:
-Nama: Aloy
-NIM: 2
-UTS: 55
-UAS: 21
-Tugas: 90
-
-Data Hasil Inputan
-
-Data ke-1:
-Nama: Fajar
-NIM: 1
-Nilai Akhir: 91.9
-
-Data ke-2:
-Nama: Aloy
-NIM: 2
-Nilai Akhir: 51.9 
+```
+9 12 8 0 2
+```
 
 ##### Output 1
-![Screenshot Output Unguided 1_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/output_soal1_modul4.png]
 
 
-Program Unguided 1 ini adalah contoh implementasi penggunaan struct dan array of struct untuk mengelola data mahasiswa. Pertama, program mendefinisikan sebuah struct bernama Mahasiswa yang berfungsi untuk menyimpan data individu, dari nama, nim, serta nilai uts, uas, dan tugas.
-
-program dimulai di fungsi main(), di mana pengguna diminta untuk memasukkan jumlah mahasiswa yang akan diinput. Selanjutnya, program melakukan perulangan untuk setiap mahasiswa. Di dalam perulangan ini, prosedur inputMahasiswa() dipanggil untuk meminta pengguna memasukkan data detail setiap mahasiswa. Setelah data terisi, program langsung memanggil prosedur hitungNilaiAkhir() untuk mengkalkulasi nilai akhir berdasarkan bobot nilai yang telah ditentukan (30% UTS, 40% UAS, dan 30% Tugas), dan hasilnya disimpan kembali ke dalam struct.
-
-Terakhir, setelah semua data mahasiswa berhasil diinput dan diolah, program akan menampilkan kembali seluruh data yang telah tersimpan secara terstruktur dengan memanggil prosedur tampilMahasiswa() untuk setiap mahasiswa, yang mencakup nama, NIM, dan nilai akhir yang sudah dihitung.
+Program Unguided 1 ini adalah mendemonstrasikan operasi dasar insertion (pemasukan) dan deletion (penghapusan) pada sebuah Single Linked List. Awalnya, di Soal 1, sebuah list kosong L dibuat. Kemudian, program mengalokasikan lima node (P1 hingga P5) dengan nilai 2, 0, 8, 12, dan 9. Semua node ini dimasukkan ke dalam list menggunakan fungsi insertFirst, yang menyebabkan setiap node baru "menyelak" ke posisi paling depan. Hasilnya, urutan list menjadi terbalik dari urutan pemasukan, yaitu 
+```
+9 -> 12 -> 8 -> 0 -> 2.
+```
 
 ### 2. Soal Unguided 2
 
-Buatlah implementasi ADT pelajaran pada file "pelajaran.cpp"
-Cobalah hasil implementasi ADT pada file "main.cpp"
+```
+https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/soal2_modul4.png
+```
 
-```C++
-//header
-//header guard digunakan untuk mencegah file header yg sama 
-// di-include lebih dari sekali dalam 1 program.
-#ifndef PELAJARAN_H
-#define PELAJARAN_H
-
+```Singlylist.h
+#ifndef SINGLYLIST_H
+#define SINGLYLIST_H
+#define Nil NULL
 #include <iostream>
 using namespace std;
 
-//deklarasi adt pelajaran
-struct pelajaran {
-    string namaMapel;
-    string kodeMapel;
+typedef int infotype;
+typedef struct ElmList *address;
+
+struct ElmList {
+    infotype info;
+    address next;
 };
 
-//function untuk membuat data pelajaran
-pelajaran create_pelajaran(string namaMapel, string kodepel);
+struct List {
+    address First;
+};
 
-//prosedur untuk menampilkan data pelajaran
-void tampil_pelajaran(pelajaran pel);
+void CreateList(List &L);
+address alokasi(infotype x);
+void dealokasi(address &P);
+void printInfo(List L);
+void insertFirst(List &L, address P);
+
+void deleteFirst(List &L, address &P);
+void deleteLast(List &L, address &P);
+void deleteAfter(List &L, address &P, address Prec);
+int nbList(List L);
+void deleteList(List &L);
 
 #endif
 
-//implementasi
 
-#include "pelajaran.h"
-
-//Implementasi function create_pelajaran
-pelajaran create_pelajaran(string namaMapel, string kodepel) {
-    pelajaran p;
-    p.namaMapel = namaMapel;
-    p.kodeMapel = kodepel;
-    return p;
-}
-
-//implementasi prosedur tampil_pelajaran
-void tampil_pelajaran(pelajaran pel) {
-    cout << "Nama pelajaran : " << pel.namaMapel << endl;
-    cout << "Kode pelajaran : " << pel.kodeMapel << endl;
-}
-
-//driver
-#include <iostream>
-#include "pelajaran.h"
-
-using namespace std;
-
-int main() {
-string namapel = "Struktur Data";
-string kodepel = "STD";
-pelajaran pel = create_pelajaran (namapel,kodepel);
-tampil_pelajaran(pel);
-return 0;
-}
 ```
-### Output Unguided 2 
-Nama pelajaran : Struktur Data
-Kode pelajaran : STD
+```Singlylist.cpp
+#include "Singlylist.h"
 
-##### Output Unguided 2 
-![Screenshot Output Unguided 2_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+void CreateList(List &L) {
+    //set pointer First ke Nil
+    L.First = Nil;
+}
 
-contoh :
-![Screenshot Output Unguided 2_1](https://github.com/DhimazHafizh/2311102151_Muhammad-Dhimas-Hafizh-Fathurrahman/blob/main/Pertemuan1_Modul1/Output-Unguided2-1.png)
+address alokasi(infotype x) {
+    //buat node baru
+    address P = new ElmList;
+    //isi info dan next
+    P -> info = x;
+    P -> next = Nil;
+    return P;
+}
 
+void dealokasi(address &P) {
+    //hapus node yang ditunjuk P
+    delete P;
+}
 
+void printInfo(List L) {
+    //print info dari setiap node
+    address P = L.First;
 
-Program Unguided 2 ini merupakan contoh implementasi dasar dari Abstract Data Type (ADT) menggunakan struct dalam bahasa C++ yang dipisahkan ke dalam beberapa file. Tujuannya adalah untuk mendemonstrasikan konsep modularitas, di mana deklarasi, implementasi, dan program utama ditempatkan pada file yang berbeda.
-
-Pertama, program mendefinisikan sebuah struct bernama pelajaran di dalam file header (pelajaran.h), yang berfungsi sebagai blueprint untuk menyimpan data mata pelajaran, yang terdiri dari namaMapel dan kodeMapel. File header ini juga mendeklarasikan sebuah function create_pelajaran() yang bertugas membuat objek dari struct tersebut dan sebuah prosedur tampil_pelajaran() untuk menampilkan isinya.
-
-Implementasi dari function dan prosedur tersebut ditempatkan secara terpisah di dalam file pelajaran.cpp. Terakhir, alur utama program dijalankan dari fungsi main() pada file main.cpp. Di dalam main, program menginisialisasi data mata pelajaran ("Struktur Data" dan "STD") secara langsung di dalam kode. Data ini kemudian dilewatkan ke function create_pelajaran() untuk membuat sebuah objek pelajaran. Setelah objek berhasil dibuat, prosedur tampil_pelajaran() dipanggil untuk menampilkan data tersebut.
-
-### 3. Soal Unguided 3
- Buatlah program dengan ketentuan :
-- 2 buah array 2D integer berukuran 3x3 dan 2 buah pointer integer
-- fungsi/prosedur yang menampilkan isi sebuah array integer 2D
-- fungsi/prosedur yang akan menukarkan isi dari 2 array integer 2D pada posisi tertentu
-- fungsi/prosedur yang akan menukarkan isi dari variabel yang ditunjuk oleh 2 buah pointer
-
-```C++
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
-
-void tampilArray(const int arr[3][3]) {
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            cout << setw(4) << arr[i][j];
+    if (P == Nil) {
+        cout << "List Kosong" << endl;
+    } else {
+        //selama P bukan Nil, print info dan geser P ke next
+        while (P != Nil) {
+            //print info diikuti spasi
+            cout << P -> info << " ";
+            //geser P ke node berikutnya
+            P = P -> next;
         }
-        cout << endl;
+        //jika sudah selesai, baris akan diakhiri dengan newline
+        cout << endl; 
     }
 }
 
-void tukarElemenArray(int arr1[3][3], int arr2[3][3], int baris, int kolom) {
-    int temp = arr1[baris][kolom];
-    arr1[baris][kolom] = arr2[baris][kolom];
-    arr2[baris][kolom] = temp;
+void insertFirst(List &L, address P) {
+    //arahkan node baru (P) ke node pertama (L.First)
+    P -> next = L.First;
+    //jadikan node baru (P) sebagai node pertama
+    L.First = P;
 }
 
-void tukarPointer(int *ptrA, int *ptrB) {
-    int temp = *ptrA;
-    *ptrA = *ptrB;
-    *ptrB = temp;
+void deleteFirst(List &L, address &P) {
+    //jika list tidak kosong
+    if (L.First != Nil) {
+        //simpan alamat node pertama ke P
+        P = L.First;
+        //geser First ke node selanjutnya
+        L.First = L.First -> next;
+        //putuskan hubungan node P dengan list
+        P -> next = Nil;
+    }
 }
 
-int main() {
-    int arrayA[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int arrayB[3][3] = {{99, 88, 77}, {66, 55, 44}, {33, 22, 11}};
-    int nilaiX = 100;
-    int nilaiY = 200;
-    int *pointerX = &nilaiX;
-    int *pointerY = &nilaiY;
+void deleteLast(List &L, address &P) {
+    if (L.First == Nil) {
+        //list kosong
+        P = Nil;
+    } else if (L.First -> next == Nil) {
+        //hanya ada satu elemen
+        P = L.First;
+        L.First = Nil;
+    } else {
+        //lebih dari satu elemen
+        address Prec = L.First;
+        //cari node sebelum node terakhir
+        while (Prec -> next -> next != Nil) {
+            Prec = Prec -> next;
+        }
+        //Prec sekarang adalah node sebelum terakhir
+        P = Prec -> next; //node terakhir
+        Prec -> next = Nil;
+    }
+}
 
-    cout << "Array A Awal:" << endl;
-    tampilArray(arrayA);
-    cout << "\nArray B Awal:" << endl;
-    tampilArray(arrayB);
+void deleteAfter(List &L, address &P, address Prec) {
+    if (Prec != Nil && Prec -> next != Nil) {
+        P = Prec -> next; //node yang akan dihapus
+        Prec -> next = P -> next; //lewati node P
+        P -> next = Nil; 
+    }
+}
 
-    tukarElemenArray(arrayA, arrayB, 1, 1);
+int nbList(List L) {
+    address P = L.First; 
+    int count = 0;
+    //loop untuk menghitung node
+    while (P != Nil) {
+        count++;
+        P = P -> next;
+    }
+    return count;
+}
 
-    cout << "\nArray A Setelah Tukar [1][1]:" << endl;
-    tampilArray(arrayA);
-    cout << "\nArray B Setelah Tukar [1][1]:" << endl;
-    tampilArray(arrayB);
+void deleteList(List &L) {
+    address P;
+    //ulangi deleteFirst sampai list kosong
+    while (L.First != Nil) {
+        deleteFirst (L, P);
+        dealokasi(P); //hapus node
+    }
 
-    cout << "\nNilai Awal -> X: " << *pointerX << ", Y: " << *pointerY << endl;
-    tukarPointer(pointerX, pointerY);
-    cout << "Nilai Akhir -> X: " << *pointerX << ", Y: " << *pointerY << endl;
-
+    //cetak pesan jika list sudah kosong
+    if (L.First == Nil) {
+        cout << "- List Berhasil Terhapus -" << endl;
+    }
 }
 ```
-### Output Unguided 3 :
-Array A Awal:
-   1   2   3
-   4   5   6
-   7   8   9
+```main.cpp
+#include <iostream>
+#include "Singlylist.h"
+using namespace std;
 
-Array B Awal:
-  99  88  77
-  66  55  44
-  33  22  11
+int main() {
+    List L;
+    address P1, P2, P3, P4, P5 = Nil;
+    CreateList(L);
+    
+    P1 = alokasi(2);
+    insertFirst(L, P1);
 
-Array A Setelah Tukar [1][1]:
-   1   2   3
-   4  55   6
-   7   8   9
+    P2 = alokasi(0);
+    insertFirst(L, P2);
 
-Array B Setelah Tukar [1][1]:
-  99  88  77
-  66   5  44
-  33  22  11
+    P3 = alokasi(8);
+    insertFirst(L, P3);
 
-Nilai Awal -> X: 100, Y: 200
-Nilai Akhir -> X: 200, Y: 100
-##### Output 1
-![Screenshot Output Unguided 3_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+    P4 = alokasi(12);
+    insertFirst(L, P4);
 
-contoh :
-![Screenshot Output Unguided 3_1](https://github.com/DhimazHafizh/2311102151_Muhammad-Dhimas-Hafizh-Fathurrahman/blob/main/Pertemuan1_Modul1/Output-Unguided3-1.png)
+    P5 = alokasi(9);
+    insertFirst(L, P5);
+
+    printInfo(L);
+
+    deleteFirst(L, P5);
+    dealokasi(P5);
+
+    deleteLast(L, P1);
+    dealokasi(P1);
+
+    deleteAfter(L, P3, P4);
+    dealokasi(P3);
+
+    printInfo(L);
+
+    cout << "Jumlah node : " << nbList(L) << endl;
+
+    deleteList(L);
+
+    cout << "Jumlah node : " << nbList(L) << endl;
+
+    return 0;
+}
+```
+```
+### Output Unguided 2 
+9 12 8 0 2 
+12 0 
+Jumlah node : 2
+- List Berhasil Terhapus -
+Jumlah node : 0
+```
+##### Output Unguided 2 
+![https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan4_Modul4/output_soal2_modul4.png]
+
+Program Unguided 2 ini melakukan tiga operasi penghapusan pada list tersebut. Pertama, deleteFirst digunakan untuk menghapus node 9 (elemen pertama). Kedua, deleteLast menghapus node 2 (elemen terakhir). Ketiga, deleteAfter menghapus node 8, yang berada setelah node 12. Setelah tiga penghapusan ini, program mencetak isi list yang tersisa (12 0) dan jumlah nodenya (Jumlah node : 2). Terakhir, fungsi deleteList dipanggil untuk menghapus semua node yang tersisa di memori, dan program mengonfirmasi keberhasilannya dengan mencetak jumlah node akhir, yaitu 0.
 
 
-Program Unguided 3 ini dibuat untuk menunjukkan dua cara berbeda dalam menukar nilai antar variabel menggunakan fungsi, yaitu dengan menukar elemen array secara langsung dan dengan menukar nilai melalui pointer (penunjuk alamat memori).
-
-program pertama-tama menyiapkan dua buah array dua dimensi, yaitu arrayA dan arrayB, beserta dua variabel biasa, nilaiX dan nilaiY. Program juga membuat dua pointer, yaitu pointerX yang menunjuk ke alamat nilaiX, dan pointerY yang menunjuk ke alamat nilaiY.
-
-Selanjutnya, program menjalankan dua skenario penukaran. Skenario pertama adalah menukar satu elemen spesifik (yaitu elemen di posisi [1][1]) antara arrayA dan arrayB dengan memanggil fungsi tukarElemenArray(). Program akan menampilkan kondisi kedua array sebelum dan sesudah penukaran untuk menunjukkan perubahannya.
-
-Pada skenario kedua, program mendemonstrasikan penukaran nilai dengan pointer. Program akan menampilkan nilai awal dari nilaiX dan nilaiY. Kemudian, fungsi tukarPointer() dipanggil dengan memberikan alamat dari kedua variabel tersebut. Fungsi ini akan menukar isi dari nilaiX dan nilaiY secara tidak langsung melalui alamatnya. Terakhir, program menampilkan kembali nilai akhir dari kedua variabel untuk membuktikan bahwa nilainya telah berhasil ditukar.
 
 ## Kesimpulan
-Kesimpulan dari latihan unguided ini adalah agar mahasiswa lebih terbiasa dengan abstract data type dan penggunaan array, pointer, serta reference
+Kesimpulan dari latihan unguided ini adalah agar mahasiswa lebih terbiasa dengan single linked list
 
 ## Referensi
 [1] Triase. (2020). Diktat Edisi Revisi : STRUKTUR DATA. Medan: UNIVERSTAS ISLAM NEGERI SUMATERA UTARA MEDAN. 
