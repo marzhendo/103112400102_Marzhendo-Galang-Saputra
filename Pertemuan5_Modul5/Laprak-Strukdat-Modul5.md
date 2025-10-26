@@ -490,8 +490,8 @@ void SearchByRange(linkedList L, dataAngka nilaiMin);
 
 #endif
 ```
-```
-//implementasi
+
+```ListAngka.cpp
 #include "ListAngka.h"
 
 bool isEmpty(linkedList L) {
@@ -688,7 +688,7 @@ void SearchByRange(linkedList L, dataAngka nilaiMin) {
     cout << endl;
 }
 ```
-```
+```main.cpp
 //driver
 #include "listAngka.h"
 #include <iostream>
