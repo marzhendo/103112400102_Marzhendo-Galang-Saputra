@@ -763,9 +763,9 @@ int main() {
     return 0;
 }
 ```
-```
+```Output
 ### Output Unguided  :
-```
+
 40 - 18 - 25 - 8 - 33 - 
 
 Masukkan update data node pertama : 50
