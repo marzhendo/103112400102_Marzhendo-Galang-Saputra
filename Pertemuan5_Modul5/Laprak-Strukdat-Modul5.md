@@ -444,11 +444,13 @@ Secara keseluruhan, program utama memanfaatkan ADT ini untuk membuat data buah b
 
 ## Unguided 
 
-### 1. Soal Unguided 
-
-
+### 1. Soal Unguided 1-3
+![Screenshot Soal 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal1.png)
+![Screenshot Soal 2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal2.png)
+![Screenshot Soal 3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal3.png)
 
 ```C++
+//ListAngka.h
 #ifndef LISTANGKA_H
 #define LISTANGKA_H
 #define Nil NULL
@@ -487,7 +489,8 @@ void SearchByAddress(linkedList L, address node);
 void SearchByRange(linkedList L, dataAngka nilaiMin);
 
 #endif
-
+```
+```
 //implementasi
 #include "ListAngka.h"
 
@@ -684,9 +687,8 @@ void SearchByRange(linkedList L, dataAngka nilaiMin) {
     }
     cout << endl;
 }
-
-
-
+```
+```
 //driver
 #include "listAngka.h"
 #include <iostream>
@@ -761,6 +763,7 @@ int main() {
     return 0;
 }
 ```
+```
 ### Output Unguided  :
 ```
 40 - 18 - 25 - 8 - 33 - 
@@ -801,7 +804,7 @@ Total perkalian : 32625000
 ```
 
 ##### Output 1
-![Screenshot Output Unguided 1_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
 
 
 Penjelasan Soal 1: Update Data
