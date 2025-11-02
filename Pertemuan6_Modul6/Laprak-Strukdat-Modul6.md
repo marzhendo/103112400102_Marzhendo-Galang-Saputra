@@ -841,9 +841,9 @@ Secara keseluruhan, Guided 2 ini bertujuan untuk memperdalam pemahaman tentang p
 ## Unguided 
 
 ### 1. Soal Unguided 1-3
-![Screenshot Soal 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal1.png)
-![Screenshot Soal 2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal2.png)
-![Screenshot Soal 3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal3.png)
+![Screenshot Soal 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan6_Modul6/soal1_modul6.png)
+![Screenshot Soal 2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan6_Modul6/soal2_modul6.png)
+![Screenshot Soal 3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan6_Modul6/soal3_modul6.png)
 
 ```C++
 #ifndef DOUBLYLIST_H
@@ -1214,15 +1214,18 @@ no polisi : D001
 warna     : hitam
 tahun     : 90
 ```
-
+```
 ##### Output 1
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
-
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan6_Modul6/modul6-output1.png)
+```
+```
 ### Output 2
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
-
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan6_Modul6/modul6_output2.png)
+```
+```
 ### Output 3
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan6_Modul6/modul6_output3.png)
+```
 
 Penjelasan Soal 1: Pembuatan ADT dan Insert Data
 
