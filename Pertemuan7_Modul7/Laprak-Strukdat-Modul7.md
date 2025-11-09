@@ -649,7 +649,6 @@ balik stack
 ### Output 3
 ![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/output%20soal%203.png)
 
-Tentu, berikut adalah deskripsi penjelasan untuk ketiga kode soal stack tersebut, yang ditulis sesuai dengan gaya contoh yang Anda berikan.
 
 Penjelasan Soal 1: ADT Stack Array dan Operasi Dasar
 
