@@ -617,7 +617,7 @@ int main() {
     printInfo(S);
     return 0;
 }
-```
+
 ### Output Soal1:
 
 Hello world!
@@ -625,22 +625,20 @@ Hello world!
 balik stack
 [TOP] 3 4 2 9 
 
-```
-```
+
 ### Output Soal2:
 Hello world!
 [TOP] 9 8 4 3 3 2 
 balik stack
 [TOP] 2 3 3 4 8 9 
-```
-```
+
+
 ### Output Soal3:
 Hello world!
 4729601
 [TOP] 1 0 6 9 2 7 4 
 balik stack
 [TOP] 4 7 2 9 6 0 1
-```
 
 ##### Output 1
 ![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/output%20soal1.png)
