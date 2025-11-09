@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul 6 - Double Linked List</h1>
+# <h1 align="center">Laporan Praktikum Modul 7 - Stack</h1>
 <p align="center">Marzhendo Galang Saputra - 103112400102</p>
 
 ## Dasar Teori
@@ -436,10 +436,9 @@ Secara sederhana, program ini membantu memahami bagaimana cara menambah, menampi
 ## Unguided 
 
 ### 1. Soal Unguided 1-3
-![Screenshot Soal 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal1.png)
-![Screenshot Soal 2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal2.png)
-![Screenshot Soal 3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal3.png)
-
+![Screenshot Soal 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/soal1.png)
+![Screenshot Soal 2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/soal2.png)
+![Screenshot Soal 3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/soal%203.png)
 ```C++
 #ifndef STACK_H
 #define STACK_H
@@ -644,13 +643,13 @@ balik stack
 ```
 
 ##### Output 1
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/output%20soal1.png)
 
 ### Output 2
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/output%20soal%202.png)
 
 ### Output 3
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/output%20soal%203.png)
 
 Tentu, berikut adalah deskripsi penjelasan untuk ketiga kode soal stack tersebut, yang ditulis sesuai dengan gaya contoh yang Anda berikan.
 
