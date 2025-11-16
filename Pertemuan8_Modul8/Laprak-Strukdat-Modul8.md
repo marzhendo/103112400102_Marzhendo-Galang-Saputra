@@ -415,9 +415,7 @@ Secara sederhana, program ini membantu memahami cara mengelola antrian dengan ar
 ## Unguided 
 
 ### 1. Soal Unguided 1-3
-![Screenshot Soal 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal1.png)
-![Screenshot Soal 2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal2.png)
-![Screenshot Soal 3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal3.png)
+![Screenshot Soal 1-3](
 
 ```C++
 #ifndef QUEUE_H
@@ -830,13 +828,13 @@ Hello world!
 
 
 ##### Output 1
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
+![Screenshot Output Unguided 1](
 
 ### Output 2
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
+![Screenshot Output Unguided 1](
 
 ### Output 3
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
+![Screenshot Output Unguided 1](
 
 Tentu, berikut adalah deskripsi penjelasan untuk ketiga kode soal stack tersebut, yang ditulis sesuai dengan gaya contoh yang Anda berikan.
 

@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul 6 - Double Linked List</h1>
+# <h1 align="center">Laporan Praktikum Modul 7 - Stack</h1>
 <p align="center">Marzhendo Galang Saputra - 103112400102</p>
 
 ## Dasar Teori
@@ -436,10 +436,9 @@ Secara sederhana, program ini membantu memahami bagaimana cara menambah, menampi
 ## Unguided 
 
 ### 1. Soal Unguided 1-3
-![Screenshot Soal 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal1.png)
-![Screenshot Soal 2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal2.png)
-![Screenshot Soal 3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Soal3.png)
-
+![Screenshot Soal 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/soal1.png)
+![Screenshot Soal 2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/soal2.png)
+![Screenshot Soal 3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/soal%203.png)
 ```C++
 #ifndef STACK_H
 #define STACK_H
@@ -618,7 +617,7 @@ int main() {
     printInfo(S);
     return 0;
 }
-```
+
 ### Output Soal1:
 
 Hello world!
@@ -626,33 +625,34 @@ Hello world!
 balik stack
 [TOP] 3 4 2 9 
 
-```
-```
+
 ### Output Soal2:
 Hello world!
 [TOP] 9 8 4 3 3 2 
 balik stack
 [TOP] 2 3 3 4 8 9 
-```
-```
+
+
 ### Output Soal3:
 Hello world!
 4729601
 [TOP] 1 0 6 9 2 7 4 
 balik stack
 [TOP] 4 7 2 9 6 0 1
-```
 
 ##### Output 1
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/output%20soal1.png)
 
 ### Output 2
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/output%20soal%202.png)
 
 ### Output 3
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan5_Modul5/Output%20Final.png)
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan7_Modul7/output%20soal%203.png)
 
+<<<<<<< HEAD
 Penjelasan Soal 1: ADT Queue Array (Alternatif 1)
+=======
+>>>>>>> 7047ed76ade046be3a6a81dfa84fa53407b9f768
 
 Bagian pertama program berfokus pada implementasi ADT Queue menggunakan representasi Array, spesifiknya Alternatif 1. Ini dicapai dengan mendefinisikan Type Queue (terdiri dari array info[5], head, dan tail) di file queue.h, serta mengimplementasikan prosedur dasarnya (CreateQueue, enqueue, printInfo, dequeue) di file queue.cpp. Sesuai Alternatif 1, head selalu 0 jika antrean tidak kosong, enqueue memajukan tail, dan dequeue mengambil data di head (indeks 0) lalu menggeser semua sisa elemen ke depan.
 
