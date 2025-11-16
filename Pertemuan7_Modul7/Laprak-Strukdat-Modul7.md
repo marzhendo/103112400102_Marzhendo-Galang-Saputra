@@ -674,7 +674,7 @@ Selama membaca, prosedur ini memfilter input: jika karakter adalah digit ('0' sa
 Di dalam main.cpp, program memanggil getInputStream. Pengguna memasukkan string "4729601". Karena push adalah operasi LIFO (Last In First Out), stack S akan berisi data dengan urutan [TOP] 1 0 6 9 2 7 4. Stack ini kemudian dicetak oleh printInfo. Terakhir, balikStack dipanggil untuk membalik urutan stack menjadi [TOP] 4 7 2 9 6 0 1, yang dicetak untuk kedua kalinya.
 
 ## Kesimpulan
-Program guided ini mengimplementasikan struktur data Queue menggunakan array statis dengan prinsip FIFO (First In First Out). Implementasi menggunakan pendekatan Queue Linear Statis dimana head tetap pada posisi awal dan elemen digeser saat dequeue, dengan kapasitas terbatas sebanyak 5 elemen. Program demonstrasi menampilkan operasi enqueue untuk penambahan data, dequeue untuk penghapusan data, serta viewQueue untuk menampilkan isi antrian, memperkuat pemahaman tentang mekanisme dasar antrian dalam pemrosesan data berurutan.
+Program stack ini bertujuan untuk memperkuat fundamental dan pengetahuan mengenai stack
 
 ## Referensi
 [1] Triase. (2020). Diktat Edisi Revisi : STRUKTUR DATA. Medan: UNIVERSTAS ISLAM NEGERI SUMATERA UTARA MEDAN. 
