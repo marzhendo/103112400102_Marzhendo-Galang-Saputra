@@ -415,7 +415,7 @@ Secara sederhana, program ini membantu memahami cara mengelola antrian dengan ar
 ## Unguided 
 
 ### 1. Soal Unguided 1-3
-![Screenshot Soal 1-3](
+![Screenshot Soal 1-3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan8_Modul8/soal%201-3.png)
 
 ```C++
 #ifndef QUEUE_H
@@ -725,21 +725,22 @@ void printInfo(Queue Q) {
 ```
 
 ```C++
-//main.cpp
+//main1.cpp
+
 #include "queue.h"
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    cout << "Hello World" << endl;
+    cout << "Hello world!" << endl;
     Queue Q;
     
     cout<<"-------------------"<<endl;
     cout<<" H  T | Queue info"<<endl;
     cout<<"-------------------"<<endl;
 
-    createQueue(Q);
+    CreateQueue(Q);
     printInfo(Q);
 
     enqueue(Q, 5);
@@ -754,10 +755,11 @@ int main() {
     dequeue(Q); 
     printInfo(Q);
 
-    enqueue(Q, 4); 
-    printInfo(Q);
 
     dequeue(Q); 
+    printInfo(Q);
+
+    enqueue(Q, 4); 
     printInfo(Q);
 
     dequeue(Q); 
@@ -768,7 +770,115 @@ int main() {
     
     return 0;
 }
+
 ```
+```C++
+//main 2
+#include "queue.h"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << "Hello world!" << endl;
+    Queue Q;
+    
+    cout<<"-------------------"<<endl;
+    cout<<" H  T | Queue info"<<endl;
+    cout<<"-------------------"<<endl;
+
+    CreateQueue(Q);
+    printInfo(Q);
+
+    cout << "== Mengisi Penuh Queue ==" << endl;
+    enqueue(Q, 1);
+    enqueue(Q, 2);
+    enqueue(Q, 3);
+    enqueue(Q, 4);
+    enqueue(Q, 5);
+    printInfo(Q);
+
+    cout << "== Dequeue 2x (Menciptakan 'Penuh Sementara') ==" << endl;
+    dequeue(Q);
+    dequeue(Q);
+    printInfo(Q);
+
+    cout << "== Enqueue 2x (Memicu Perbedaan Logika) ==" << endl;
+    enqueue(Q, 6);
+    printInfo(Q);
+    
+    enqueue(Q, 7);
+    printInfo(Q);
+
+    cout << "== Mengosongkan Queue ==" << endl;
+    dequeue(Q);
+    printInfo(Q);
+    dequeue(Q);
+    printInfo(Q);
+    dequeue(Q);
+    printInfo(Q);
+    dequeue(Q);
+    printInfo(Q);
+    dequeue(Q);
+    printInfo(Q);
+
+    return 0;
+}
+```
+```C++
+//main 3
+#include "queue.h"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << "Hello world!" << endl;
+    Queue Q;
+    
+    cout<<"-------------------"<<endl;
+    cout<<" H  T | Queue info"<<endl;
+    cout<<"-------------------"<<endl;
+
+    CreateQueue(Q);
+    printInfo(Q);
+
+    cout << "== Mengisi Penuh Queue ==" << endl;
+    enqueue(Q, 1);
+    enqueue(Q, 2);
+    enqueue(Q, 3);
+    enqueue(Q, 4);
+    enqueue(Q, 5);
+    printInfo(Q);
+
+    cout << "== Dequeue 2x (Menciptakan 'Penuh Sementara) ==" << endl;
+    dequeue(Q);
+    dequeue(Q);
+    printInfo(Q);
+
+    cout << "== Enqueue 2x (Memicu Perbedaan Logika) ==" << endl;
+    enqueue(Q, 6);
+    printInfo(Q);
+    
+    enqueue(Q, 7);
+    printInfo(Q);
+
+    cout << "== Mengosongkan Queue ==" << endl;
+    dequeue(Q);
+    printInfo(Q);
+    dequeue(Q);
+    printInfo(Q);
+    dequeue(Q);
+    printInfo(Q);
+    dequeue(Q);
+    printInfo(Q);
+    dequeue(Q);
+    printInfo(Q);
+
+    return 0;
+}
+```
+
 ### Output Soal1:
 
 -------------------
@@ -827,43 +937,42 @@ Hello world!
  -1 -1 | empty queue
 
 
-##### Output 1
-![Screenshot Output Unguided 1](
+#### Output 1
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan8_Modul8/soal1.png)
 
 ### Output 2
-![Screenshot Output Unguided 1](
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan8_Modul8/soal2.png)
 
 ### Output 3
-![Screenshot Output Unguided 1](
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan8_Modul8/soal3.png)
 
-Tentu, berikut adalah deskripsi penjelasan untuk ketiga kode soal stack tersebut, yang ditulis sesuai dengan gaya contoh yang Anda berikan.
+### Penjelasan
+Penjelasan Soal 1: ADT Queue Array (Alternatif 1)
 
-Penjelasan Soal 1: ADT Stack Array dan Operasi Dasar
+Bagian pertama program berfokus pada implementasi ADT Queue menggunakan representasi Array, spesifiknya Alternatif 1. Ini dicapai dengan mendefinisikan Type Queue (terdiri dari array info[5], head, dan tail) di file queue.h, serta mengimplementasikan prosedur dasarnya (CreateQueue, enqueue, printInfo, dequeue) di file queue.cpp. Sesuai Alternatif 1, head selalu 0 jika antrean tidak kosong, enqueue memajukan tail, dan dequeue mengambil data di head (indeks 0) lalu menggeser semua sisa elemen ke depan.
 
-Bagian pertama program berfokus pada implementasi ADT Stack menggunakan representasi Array. Ini dicapai dengan mendefinisikan Type Stack (terdiri dari array info[20] dan integer top) di file stack.h, serta mengimplementasikan prosedur dasarnya (createStack, push, pop, printInfo, balikStack) di file stack.cpp.
+Di dalam main.cpp (sesuai Gambar 8-18 ), program melakukan serangkaian operasi enqueue dan dequeue. Awalnya, data 5, 2, dan 7 di-enqueue, menghasilkan state H 0 T 2 | 5 2 7.
 
-Di dalam main.cpp, setelah stack S dibuat (menggunakan createStack), program melakukan serangkaian operasi push dan pop untuk memanipulasi data. Program mem-push 3, 4, dan 8. Kemudian mem-pop (menghapus 8). Mem-push 2 dan 3. Kemudian mem-pop (menghapus 3). Terakhir mem-push 9.
+Saat dequeue pertama dipanggil, program mengambil nilai 5. Alih-alih memindahkan head, program menggeser elemen '2' dan '7' ke indeks 0 dan 1. Hasilnya, state list berubah menjadi H 0 T 1 | 2 7. Sisa operasi (enqueue(4), lalu dequeue 3x) mengikuti logika pergeseran yang sama hingga antrean kembali kosong (H -1 T -1), menghasilkan output yang sesuai dengan Gambar 8-17 .
 
-Setelah semua operasi, stack akhir yang terbentuk adalah [TOP] 9 2 4 3. Stack ini kemudian dicetak oleh printInfo, dilanjutkan dengan pemanggilan balikStack. Prosedur balikStack (menggunakan dua stack temporer) membalik urutan stack menjadi [TOP] 3 4 2 9, yang kemudian dicetak lagi.
+Penjelasan Soal 2: ADT Queue Array (Alternatif 2)
 
-Penjelasan Soal 2: Push Ascending
+Bagian kedua program berfokus pada implementasi ADT Queue Alternatif 2. Prosedur di queue.cpp dimodifikasi. dequeue kini menjadi efisien dengan hanya memajukan head. Namun, enqueue kini memiliki logika tambahan: jika tail telah mencapai akhir array (MAX_QUEUE-1) tetapi head tidak di indeks 0 (kondisi "penuh semu" ), enqueue akan menggeser semua elemen yang ada ke awal array untuk menciptakan ruang di belakang.
 
-Bagian kedua adalah implementasi fungsionalitas pushAscending yang ditambahkan ke stack.cpp. Prosedur ini dirancang untuk memasukkan elemen baru (x) ke dalam stack sedemikian rupa sehingga stack tetap terurut (dalam kasus ini, terurut ascending dari top ke bottom, atau nilai terkecil di top).
+Di dalam main.cpp (versi modifikasi), program dirancang untuk memicu kondisi penuh semu. Pertama, antrean diisi penuh (H 0 T 4 | 1 2 3 4 5). Kemudian, dequeue dipanggil 2 kali, memajukan head. State list menjadi H 2 T 4 | 3 4 5.
 
-Logika pushAscending bekerja dengan mem-pop sementara semua elemen di S yang nilainya lebih kecil dari x ke stack temporer. Kemudian, x di-push ke S, dan elemen dari stack temporer dikembalikan ke S.
+Saat enqueue(6) dipanggil, kondisi penuh semu terdeteksi (tail == 4 dan head != 0). Logika Alternatif 2 terpicu: elemen '3', '4', '5' digeser ke indeks 0, 1, dan 2. head direset ke 0 dan tail menjadi 3. State akhir berubah menjadi H 0 T 3 | 3 4 5 6, yang membuktikan operasi pergeseran telah berhasil.
 
-Di dalam main.cpp, program memanggil pushAscending secara berurutan dengan data 3, 4, 8, 2, 3, dan 9. Setelah semua pemanggilan, stack akhir yang terbentuk adalah [TOP] 2 3 3 4 8 9. Stack ini kemudian dicetak oleh printInfo, dilanjutkan dengan pemanggilan balikStack yang membalik urutan menjadi [TOP] 9 8 4 3 3 2, yang kemudian dicetak lagi.
+Penjelasan Soal 3: ADT Queue Array (Alternatif 3 / Circular)
 
-Penjelasan Soal 3: Input Stream
+Bagian ketiga program mengimplementasikan ADT Queue Alternatif 3, yang dikenal sebagai Circular Buffer. Prosedur di queue.cpp dimodifikasi total untuk menggunakan operasi modulo (%). enqueue dan dequeue kini memajukan head dan tail dengan membungkus indeks kembali ke 0 jika telah mencapai akhir array. Logika ini sepenuhnya menghilangkan kebutuhan untuk pergeseran elemen.
 
-Bagian terakhir adalah implementasi prosedur getInputStream di stack.cpp. Prosedur ini bertugas membaca input karakter dari pengguna secara kontinu menggunakan cin.get() hingga pengguna menekan tombol Enter (karakter \n).
+Di dalam main.cpp (menggunakan main.cpp modifikasi yang sama dengan Soal 2), program sengaja menciptakan kondisi penuh semu. Setelah enqueue 5x dan dequeue 2x, state list menjadi H 2 T 4 | 3 4 5.
 
-Selama membaca, prosedur ini memfilter input: jika karakter adalah digit ('0' sampai '9'), karakter tersebut dikonversi menjadi integer dan di-push ke dalam stack S. Karakter lain (selain \n) akan diabaikan.
-
-Di dalam main.cpp, program memanggil getInputStream. Pengguna memasukkan string "4729601". Karena push adalah operasi LIFO (Last In First Out), stack S akan berisi data dengan urutan [TOP] 1 0 6 9 2 7 4. Stack ini kemudian dicetak oleh printInfo. Terakhir, balikStack dipanggil untuk membalik urutan stack menjadi [TOP] 4 7 2 9 6 0 1, yang dicetak untuk kedua kalinya.
+Saat enqueue(6) dipanggil, logika Alternatif 3 yang berbeda dieksekusi. Alih-alih menggeser, tail "berputar": tail baru dihitung sebagai (4 + 1) % 5, yang menghasilkan 0. Elemen '6' disisipkan di info[0]. State akhir berubah menjadi H 2 T 0 | 3 4 5 6 (dicetak secara sirkular), yang secara jelas menunjukkan perbedaan implementasi dari Alternatif 2.
 
 ## Kesimpulan
-Kesimpulan dari latihan unguided ini adalah agar mahasiswa lebih terbiasa dengan implementasi stack.
+Program guided ini mengimplementasikan struktur data Queue menggunakan array statis dengan prinsip FIFO (First In First Out). Implementasi menggunakan pendekatan Queue Linear Statis dimana head tetap pada posisi awal dan elemen digeser saat dequeue, dengan kapasitas terbatas sebanyak 5 elemen. Program demonstrasi menampilkan operasi enqueue untuk penambahan data, dequeue untuk penghapusan data, serta viewQueue untuk menampilkan isi antrian, memperkuat pemahaman tentang mekanisme dasar antrian dalam pemrosesan data berurutan.
 
 ## Referensi
 [1] Triase. (2020). Diktat Edisi Revisi : STRUKTUR DATA. Medan: UNIVERSTAS ISLAM NEGERI SUMATERA UTARA MEDAN. 
