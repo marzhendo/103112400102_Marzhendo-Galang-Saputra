@@ -1,4 +1,3 @@
-// main_soal2.cpp
 #include <iostream>
 #include "bstree.h"
 using namespace std;
@@ -6,7 +5,6 @@ using namespace std;
 int main() {
     cout << "Hello world!" << endl;
 
-    // kode ini bagian soal no 2 (tree sama dengan soal 1)
     address root = Nil;
 
     insertNode(root, 1);

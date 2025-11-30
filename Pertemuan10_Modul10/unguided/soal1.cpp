@@ -5,8 +5,6 @@ using namespace std;
 
 int main() {
     cout << "Hello world!" << endl;
-
-    // kode ini bagian soal no 1
     address root = Nil;
 
     insertNode(root, 1);
@@ -17,7 +15,7 @@ int main() {
     insertNode(root, 6);
     insertNode(root, 7);
 
-    printInOrder(root);     // InOrder(root) di modul
+    printInOrder(root);     
     cout << endl;
 
     return 0;
