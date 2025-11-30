@@ -447,566 +447,256 @@ File main.cpp adalah bagian utama yang menjalankan program. Di sini, tree dibuat
 ## Unguided 
 
 ### 1. Soal Unguided 1-3
-![Screenshot Soal 1](
-![Screenshot Soal 2](
-![Screenshot Soal 3](
+![Screenshot Soal 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan10_Modul10/soal1.png)
+![Screenshot Soal 2](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan10_Modul10/soal2.png)
+![Screenshot Soal 3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan10_Modul10/soal3.png)
 
 ```C++
-#ifndef QUEUE_H
-#define QUEUE_H
-
+#ifndef BSTREE_H
+#define BSTREE_H
+#define Nil NULL
 #include <iostream>
-#include <iomanip> 
-
 using namespace std;
 
-const int MAX_QUEUE = 5;
-
 typedef int infotype;
-
-struct Queue {
-    infotype info[MAX_QUEUE];
-    int head;
-    int tail;
+struct Node {
+    infotype info;
+    Node *left;
+    Node *right;
 };
+typedef Node* address;
 
-void CreateQueue(Queue &Q);
-bool isEmptyQueue(Queue Q);
-bool isFullQueue(Queue Q);
-void enqueue(Queue &Q, infotype x);
-infotype dequeue(Queue &Q);
-void printInfo(Queue Q);
+address alokasi(infotype x);                                  
+void insertNode(address &root, infotype x);                   
+address findNode(infotype x, address root);                   
+void printInOrder(address root);                              
+
+int hitungKedalaman(address root);                            
+int hitungJumlahNode(address root);                           
+int hitungTotal(address root);                                
+
+void printPreOrder(address root);                             
+void printPostOrder(address root);                            
 
 #endif
+
 ```
 ```c++
-#include "stack.h"
+#include "bstree.h"
+using namespace std;
 
-bool isEmpty(Stack S) {
-    return S.top == -1;
+address alokasi(infotype x) {           
+    address p = new Node;
+    p->info  = x;
+    p->left  = Nil;
+    p->right = Nil;
+    return p;
 }
 
-bool isFull(Stack S) {
-    return S.top == MAX_STACK - 1;
-}
-
-void createStack(Stack &S) {
-    S.top = -1;
-}
-
-void push(Stack &S, infotype x) {
-    if (!isFull(S)) {
-        S.top++;
-        S.info[S.top] = x;
-    }
-}
-
-infotype pop(Stack &S) {
-    infotype x = -1;
-    if (!isEmpty(S)) {
-        x = S.info[S.top];
-        S.top--;
-    }
-    return x;
-}
-
-void printInfo(Stack S) {
-    cout << "[TOP] ";
-    if (!isEmpty(S)) {
-        for (int i = S.top; i >= 0; i--) {
-            cout << S.info[i] << " ";
-        }
-    }
-    cout << endl;
-}
-
-void balikStack(Stack &S) {
-    if (isEmpty(S)) {
-        return;
-    }
-
-    Stack temp1, temp2;
-    createStack(temp1);
-    createStack(temp2);
-
-    while (!isEmpty(S)) {
-        push(temp1, pop(S));
-    }
-    while (!isEmpty(temp1)) {
-        push(temp2, pop(temp1));
-    }
-    while (!isEmpty(temp2)) {
-        push(S, pop(temp2));
+void insertNode(address &root, infotype x) {   
+    if (root == Nil) {
+        root = alokasi(x);
+    } else if (x < root->info) {
+        insertNode(root->left, x);
+    } else if (x > root->info) {
+        insertNode(root->right, x);
     }
 }
 
-void pushAscending(Stack &S, infotype x) {
-    Stack temp;
-    createStack(temp);
-
-    while (!isEmpty(S) && S.info[S.top] > x) {
-        push(temp, pop(S));
-    }
-
-    push(S, x);
-
-    while (!isEmpty(temp)) {
-        push(S, pop(temp));
+address findNode(infotype x, address root) {
+    if (root == Nil || root->info == x) {
+        return root;
+    } else if (x < root->info) {
+        return findNode(x, root->left);
+    } else {
+        return findNode(x, root->right);
     }
 }
 
-void getInputStream(Stack &S) {
-    char c;
-    c = cin.get();
-    while (c != '\n') {
-        if (c >= '0' && c <= '9') {
-            infotype x = c - '0';
-            push(S, x);
-        }
-        c = cin.get();
+void printInOrder(address root) {              
+    if (root != Nil) {
+        printInOrder(root->left);
+        cout << root->info << " - ";
+        printInOrder(root->right);
     }
 }
+
+int hitungKedalaman(address root) {
+    if (root == Nil) return 0;
+    int L = hitungKedalaman(root->left);
+    int R = hitungKedalaman(root->right);
+    return (L > R ? L : R) + 1;
+}
+
+int hitungJumlahNode(address root) {          
+    if (root == Nil) return 0;
+    return 1 + hitungJumlahNode(root->left)
+             + hitungJumlahNode(root->right);
+}
+
+int hitungTotal(address root) {              
+    if (root == Nil) return 0;
+    return root->info + hitungTotal(root->left)
+                      + hitungTotal(root->right);
+}
+
+void printPreOrder(address root) {
+    if (root != Nil) {
+        cout << root->info << " ";
+        printPreOrder(root->left);
+        printPreOrder(root->right);
+    }
+}
+
+void printPostOrder(address root) {           
+    if (root != Nil) {
+        printPostOrder(root->left);
+        printPostOrder(root->right);
+        cout << root->info << " ";
+    }
+}
+
 ```
 ```C++
 //soal1
-#include "queue.h"
+#include <iostream>
+#include "bstree.h"
+using namespace std;
 
-void CreateQueue(Queue &Q) {
-    Q.head = -1;
-    Q.tail = -1;
-}
+int main() {
+    cout << "Hello world!" << endl;
+    address root = Nil;
 
-bool isEmptyQueue(Queue Q) {
-    return Q.tail == -1;
-}
+    insertNode(root, 1);
+    insertNode(root, 2);
+    insertNode(root, 3);
+    insertNode(root, 4);
+    insertNode(root, 5);
+    insertNode(root, 6);
+    insertNode(root, 7);
 
-bool isFullQueue(Queue Q) {
-    return Q.tail == MAX_QUEUE - 1;
-}
-
-void enqueue(Queue &Q, infotype x) {
-    if (!isFullQueue(Q)) {
-        if (isEmptyQueue(Q)) {
-            Q.head = 0;
-            Q.tail = 0;
-        } else {
-            Q.tail++;
-        }
-        Q.info[Q.tail] = x;
-    }
-}
-
-infotype dequeue(Queue &Q) {
-    infotype x = -1;
-    if (!isEmptyQueue(Q)) {
-        x = Q.info[Q.head];
-        if (Q.head == Q.tail) {
-            CreateQueue(Q);
-        } else {
-            for (int i = Q.head; i < Q.tail; i++) {
-                Q.info[i] = Q.info[i+1];
-            }
-            Q.tail--;
-        }
-    }
-    return x;
-}
-
-void printInfo(Queue Q) {
-    cout << setw(3) << Q.head << setw(3) << Q.tail << " | ";
-    if (isEmptyQueue(Q)) {
-        cout << "empty queue";
-    } else {
-        for (int i = Q.head; i <= Q.tail; i++) {
-            cout << Q.info[i] << " ";
-        }
-    }
+    printInOrder(root);     
     cout << endl;
+
+    return 0;
 }
+
 ```
 ```C++
 //soal2
-#include "queue.h"
+#include <iostream>
+#include "bstree.h"
+using namespace std;
 
-void CreateQueue(Queue &Q) {
-    Q.head = -1;
-    Q.tail = -1;
-}
+int main() {
+    cout << "Hello world!" << endl;
 
-bool isEmptyQueue(Queue Q) {
-    return Q.tail == -1;
-}
+    address root = Nil;
 
-bool isFullQueue(Queue Q) {
-    return Q.head == 0 && Q.tail == MAX_QUEUE - 1;
-}
+    insertNode(root, 1);
+    insertNode(root, 2);
+    insertNode(root, 3);
+    insertNode(root, 4);
+    insertNode(root, 5);
+    insertNode(root, 6);
+    insertNode(root, 7);
 
-void enqueue(Queue &Q, infotype x) {
-    if (isEmptyQueue(Q)) {
-        Q.head = 0;
-        Q.tail = 0;
-        Q.info[Q.tail] = x;
-    } else if (Q.tail == MAX_QUEUE - 1) {
-        if (Q.head != 0) {
-            int i = Q.head;
-            int j = 0;
-            while (i <= Q.tail) {
-                Q.info[j] = Q.info[i];
-                i++;
-                j++;
-            }
-            Q.head = 0;
-            Q.tail = j;
-            Q.info[Q.tail] = x;
-        }
-    } else {
-        Q.tail++;
-        Q.info[Q.tail] = x;
-    }
-}
-
-infotype dequeue(Queue &Q) {
-    infotype x = -1;
-    if (!isEmptyQueue(Q)) {
-        x = Q.info[Q.head];
-        if (Q.head == Q.tail) {
-            CreateQueue(Q);
-        } else {
-            Q.head++;
-        }
-    }
-    return x;
-}
-
-void printInfo(Queue Q) {
-    cout << setw(3) << Q.head << setw(3) << Q.tail << " | ";
-    if (isEmptyQueue(Q)) {
-        cout << "empty queue";
-    } else {
-        for (int i = Q.head; i <= Q.tail; i++) {
-            cout << Q.info[i] << " ";
-        }
-    }
+    printInOrder(root);
     cout << endl;
+
+    cout << "kedalaman : "   << hitungKedalaman(root)    << endl;
+    cout << "jumlah node : " << hitungJumlahNode(root)   << endl;
+    cout << "total : "       << hitungTotal(root)        << endl;
+
+    return 0;
 }
+
 ```
 ```C++
 //soal3
-#include "queue.h"
+#include <iostream>
+#include "bstree.h"
+using namespace std;
 
-void CreateQueue(Queue &Q) {
-    Q.head = -1;
-    Q.tail = -1;
-}
+int main() {
+    address root = Nil;
+    insertNode(root, 4);
+    insertNode(root, 2);
+    insertNode(root, 6);
+    insertNode(root, 1);
+    insertNode(root, 3);
+    insertNode(root, 5);
+    insertNode(root, 7);
 
-bool isEmptyQueue(Queue Q) {
-    return Q.tail == -1;
-}
-
-bool isFullQueue(Queue Q) {
-    if (isEmptyQueue(Q)) {
-        return false;
-    }
-    int next_tail = (Q.tail + 1) % MAX_QUEUE;
-    return next_tail == Q.head;
-}
-
-void enqueue(Queue &Q, infotype x) {
-    if (!isFullQueue(Q)) {
-        if (isEmptyQueue(Q)) {
-            Q.head = 0;
-            Q.tail = 0;
-        } else {
-            Q.tail = (Q.tail + 1) % MAX_QUEUE;
-        }
-        Q.info[Q.tail] = x;
-    }
-}
-
-infotype dequeue(Queue &Q) {
-    infotype x = -1;
-    if (!isEmptyQueue(Q)) {
-        x = Q.info[Q.head];
-        if (Q.head == Q.tail) {
-            CreateQueue(Q);
-        } else {
-            Q.head = (Q.head + 1) % MAX_QUEUE;
-        }
-    }
-    return x;
-}
-
-void printInfo(Queue Q) {
-    cout << setw(3) << Q.head << setw(3) << Q.tail << " | ";
-    if (isEmptyQueue(Q)) {
-        cout << "empty queue";
-    } else {
-        if (Q.head <= Q.tail) {
-            for (int i = Q.head; i <= Q.tail; i++) {
-                cout << Q.info[i] << " ";
-            }
-        } else {
-            for (int i = Q.head; i < MAX_QUEUE; i++) {
-                cout << Q.info[i] << " ";
-            }
-            for (int i = 0; i <= Q.tail; i++) {
-                cout << Q.info[i] << " ";
-            }
-        }
-    }
+    cout << "Pre-order  : ";
+    printPreOrder(root);
     cout << endl;
-}
-```
 
-```C++
-//main1.cpp
-
-#include "queue.h"
-#include <iostream>
-
-using namespace std;
-
-int main() {
-    cout << "Hello world!" << endl;
-    Queue Q;
-    
-    cout<<"-------------------"<<endl;
-    cout<<" H  T | Queue info"<<endl;
-    cout<<"-------------------"<<endl;
-
-    CreateQueue(Q);
-    printInfo(Q);
-
-    enqueue(Q, 5);
-    printInfo(Q);
-
-    enqueue(Q, 2);
-    printInfo(Q);
-
-    enqueue(Q, 7);
-    printInfo(Q);
-
-    dequeue(Q); 
-    printInfo(Q);
-
-
-    dequeue(Q); 
-    printInfo(Q);
-
-    enqueue(Q, 4); 
-    printInfo(Q);
-
-    dequeue(Q); 
-    printInfo(Q);
-
-    dequeue(Q); 
-    printInfo(Q);
-    
-    return 0;
-}
-
-```
-```C++
-//main 2
-#include "queue.h"
-#include <iostream>
-
-using namespace std;
-
-int main() {
-    cout << "Hello world!" << endl;
-    Queue Q;
-    
-    cout<<"-------------------"<<endl;
-    cout<<" H  T | Queue info"<<endl;
-    cout<<"-------------------"<<endl;
-
-    CreateQueue(Q);
-    printInfo(Q);
-
-    cout << "== Mengisi Penuh Queue ==" << endl;
-    enqueue(Q, 1);
-    enqueue(Q, 2);
-    enqueue(Q, 3);
-    enqueue(Q, 4);
-    enqueue(Q, 5);
-    printInfo(Q);
-
-    cout << "== Dequeue 2x (Menciptakan 'Penuh Sementara') ==" << endl;
-    dequeue(Q);
-    dequeue(Q);
-    printInfo(Q);
-
-    cout << "== Enqueue 2x (Memicu Perbedaan Logika) ==" << endl;
-    enqueue(Q, 6);
-    printInfo(Q);
-    
-    enqueue(Q, 7);
-    printInfo(Q);
-
-    cout << "== Mengosongkan Queue ==" << endl;
-    dequeue(Q);
-    printInfo(Q);
-    dequeue(Q);
-    printInfo(Q);
-    dequeue(Q);
-    printInfo(Q);
-    dequeue(Q);
-    printInfo(Q);
-    dequeue(Q);
-    printInfo(Q);
+    cout << "Post-order : ";
+    printPostOrder(root);
+    cout << endl;
 
     return 0;
 }
+
 ```
-```C++
-//main 3
-#include "queue.h"
-#include <iostream>
 
-using namespace std;
-
-int main() {
-    cout << "Hello world!" << endl;
-    Queue Q;
-    
-    cout<<"-------------------"<<endl;
-    cout<<" H  T | Queue info"<<endl;
-    cout<<"-------------------"<<endl;
-
-    CreateQueue(Q);
-    printInfo(Q);
-
-    cout << "== Mengisi Penuh Queue ==" << endl;
-    enqueue(Q, 1);
-    enqueue(Q, 2);
-    enqueue(Q, 3);
-    enqueue(Q, 4);
-    enqueue(Q, 5);
-    printInfo(Q);
-
-    cout << "== Dequeue 2x (Menciptakan 'Penuh Sementara) ==" << endl;
-    dequeue(Q);
-    dequeue(Q);
-    printInfo(Q);
-
-    cout << "== Enqueue 2x (Memicu Perbedaan Logika) ==" << endl;
-    enqueue(Q, 6);
-    printInfo(Q);
-    
-    enqueue(Q, 7);
-    printInfo(Q);
-
-    cout << "== Mengosongkan Queue ==" << endl;
-    dequeue(Q);
-    printInfo(Q);
-    dequeue(Q);
-    printInfo(Q);
-    dequeue(Q);
-    printInfo(Q);
-    dequeue(Q);
-    printInfo(Q);
-    dequeue(Q);
-    printInfo(Q);
-
-    return 0;
-}
-```
 
 ### Output Soal1:
 
--------------------
- H  T | Queue info
--------------------
- -1 -1 | empty queue
-  0  0 | 5
-  0  1 | 5 2
-  0  2 | 5 2 7
-  0  1 | 2 7
-  0  0 | 7
-  0  1 | 7 4
-  0  0 | 4
- -1 -1 | empty queue
-
+Hello world!
+1 - 2 - 3 - 4 - 5 - 6 - 7 -
 
 
 ### Output Soal2:
 Hello world!
--------------------
- H  T | Queue info
--------------------
- -1 -1 | empty queue
-== Mengisi Penuh Queue ==
-  0  4 | 1 2 3 4 5
-== Dequeue 2x (Menciptakan 'Penuh') ==
-  2  4 | 3 4 5
-== Enqueue 2x (Memicu Perbedaan Logika) ==
-  0  3 | 3 4 5 6
-  0  4 | 3 4 5 6 7
-== Mengosongkan Queue ==
-  1  4 | 4 5 6 7
-  2  4 | 5 6 7
-  3  4 | 6 7
-  4  4 | 7
- -1 -1 | empty queue
+1 - 2 - 3 - 4 - 5 - 6 - 7 - 
+kedalaman : 7
+jumlah node : 7
+total : 28
 
 
 ### Output Soal3:
--------------------
- H  T | Queue info
--------------------
- -1 -1 | empty queue
-== Mengisi Penuh Queue ==
-  0  4 | 1 2 3 4 5
-== Dequeue 2x (Menciptakan 'Penuh Sementara) ==
-  2  4 | 3 4 5
-== Enqueue 2x (Memicu Perbedaan Logika) ==
-  2  0 | 3 4 5 6
-  2  1 | 3 4 5 6 7
-== Mengosongkan Queue ==
-  3  1 | 4 5 6 7
-  4  1 | 5 6 7
-  0  1 | 6 7
-  1  1 | 7
- -1 -1 | empty queue
+Pre-order  : 4 2 1 3 6 5 7 
+Post-order : 1 3 2 5 7 6 4
 
 
 #### Output 1
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan8_Modul8/soal1.png)
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan10_Modul10/output1.png)
 
 ### Output 2
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan8_Modul8/soal2.png)
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan10_Modul10/output2.png)
 
 ### Output 3
-![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan8_Modul8/soal3.png)
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan10_Modul10/output3.png)
 
 ### Penjelasan
-Penjelasan Soal 1: ADT Queue Array (Alternatif 1)
+Penjelasan Soal 1: Implementasi Dasar BST (Insert & InOrder)
 
-Bagian pertama program berfokus pada implementasi ADT Queue menggunakan representasi Array, spesifiknya Alternatif 1. Ini dicapai dengan mendefinisikan Type Queue (terdiri dari array info[5], head, dan tail) di file queue.h, serta mengimplementasikan prosedur dasarnya (CreateQueue, enqueue, printInfo, dequeue) di file queue.cpp. Sesuai Alternatif 1, head selalu 0 jika antrean tidak kosong, enqueue memajukan tail, dan dequeue mengambil data di head (indeks 0) lalu menggeser semua sisa elemen ke depan.
+Bagian pertama program berfokus pada implementasi dasar ADT Binary Search Tree (BST) menggunakan pointer. Struktur data didefinisikan sebagai struct Node di file bstree.h, sementara logika prosedurnya seperti alokasi dan insertNode diimplementasikan di bstree.cpp. Logika insertNode memastikan aturan BST terjaga: nilai yang lebih kecil dari root akan masuk ke subtree kiri, dan yang lebih besar ke subtree kanan.
 
-Di dalam main.cpp (sesuai Gambar 8-18 ), program melakukan serangkaian operasi enqueue dan dequeue. Awalnya, data 5, 2, dan 7 di-enqueue, menghasilkan state H 0 T 2 | 5 2 7.
+Di dalam soal1.cpp, program melakukan serangkaian operasi insert data secara berurutan mulai dari angka 1 hingga 7. Karena data dimasukkan secara urut menaik, tree yang terbentuk menjadi tidak seimbang (skewed) atau miring ke kanan, sehingga bentuknya menyerupai Linked List linier.
 
-Saat dequeue pertama dipanggil, program mengambil nilai 5. Alih-alih memindahkan head, program menggeser elemen '2' dan '7' ke indeks 0 dan 1. Hasilnya, state list berubah menjadi H 0 T 1 | 2 7. Sisa operasi (enqueue(4), lalu dequeue 3x) mengikuti logika pergeseran yang sama hingga antrean kembali kosong (H -1 T -1), menghasilkan output yang sesuai dengan Gambar 8-17 .
+Saat prosedur printInOrder dipanggil, program menelusuri tree dengan urutan Left-Root-Right. Hasilnya, data ditampilkan secara terurut menaik (1 - 2 - 3 - 4 - 5 - 6 - 7), membuktikan bahwa data telah tersimpan dengan benar dalam struktur BST meskipun bentuk tree-nya belum optimal.
 
-Penjelasan Soal 2: ADT Queue Array (Alternatif 2)
+Penjelasan Soal 2: Operasi Perhitungan pada Tree
 
-Bagian kedua program berfokus pada implementasi ADT Queue Alternatif 2. Prosedur di queue.cpp dimodifikasi. dequeue kini menjadi efisien dengan hanya memajukan head. Namun, enqueue kini memiliki logika tambahan: jika tail telah mencapai akhir array (MAX_QUEUE-1) tetapi head tidak di indeks 0 (kondisi "penuh semu" ), enqueue akan menggeser semua elemen yang ada ke awal array untuk menciptakan ruang di belakang.
+Bagian kedua program memperluas fungsionalitas dengan menambahkan operasi statistik pada tree di file bstree.cpp. Fungsi rekursif ditambahkan untuk menghitung atribut tree, yaitu hitungKedalaman untuk mencari tinggi tree, hitungJumlahNode untuk menghitung total elemen, dan hitungTotal untuk menjumlahkan nilai seluruh data.
 
-Di dalam main.cpp (versi modifikasi), program dirancang untuk memicu kondisi penuh semu. Pertama, antrean diisi penuh (H 0 T 4 | 1 2 3 4 5). Kemudian, dequeue dipanggil 2 kali, memajukan head. State list menjadi H 2 T 4 | 3 4 5.
+Di dalam soal2.cpp, inisialisasi tree yang dilakukan sama persis dengan Soal 1 (memasukkan angka 1-7 secara urut). Setelah tree terbentuk, program memanggil fungsi-fungsi perhitungan tersebut.
 
-Saat enqueue(6) dipanggil, kondisi penuh semu terdeteksi (tail == 4 dan head != 0). Logika Alternatif 2 terpicu: elemen '3', '4', '5' digeser ke indeks 0, 1, dan 2. head direset ke 0 dan tail menjadi 3. State akhir berubah menjadi H 0 T 3 | 3 4 5 6, yang membuktikan operasi pergeseran telah berhasil.
+Karena bentuk tree miring ke kanan (right-skewed), hasil kedalaman (height) akan setara dengan jumlah nodenya (7 level), yang menunjukkan kasus terburuk (worst case) dari BST. Output program menampilkan hasil perhitungan kedalaman, jumlah node, dan total penjumlahan nilai secara akurat.
 
-Penjelasan Soal 3: ADT Queue Array (Alternatif 3 / Circular)
+Penjelasan Soal 3: Traversal dan Efek Urutan Insert
 
-Bagian ketiga program mengimplementasikan ADT Queue Alternatif 3, yang dikenal sebagai Circular Buffer. Prosedur di queue.cpp dimodifikasi total untuk menggunakan operasi modulo (%). enqueue dan dequeue kini memajukan head dan tail dengan membungkus indeks kembali ke 0 jika telah mencapai akhir array. Logika ini sepenuhnya menghilangkan kebutuhan untuk pergeseran elemen.
+Bagian ketiga program mengeksplorasi pengaruh urutan input data terhadap bentuk tree dan hasil traversal. Logika traversal tambahan yaitu printPreOrder (Root-Left-Right) dan printPostOrder (Left-Right-Root) diimplementasikan di file bstree.cpp.
 
-Di dalam main.cpp (menggunakan main.cpp modifikasi yang sama dengan Soal 2), program sengaja menciptakan kondisi penuh semu. Setelah enqueue 5x dan dequeue 2x, state list menjadi H 2 T 4 | 3 4 5.
+Di dalam soal3.cpp, data dimasukkan dengan urutan acak namun strategis (4, 2, 6, 1, 3, 5, 7). Dimulai dengan angka 4 sebagai root, angka-angka berikutnya mengisi sisi kiri dan kanan secara merata, menghasilkan tree yang seimbang (balanced tree).
 
-Saat enqueue(6) dipanggil, logika Alternatif 3 yang berbeda dieksekusi. Alih-alih menggeser, tail "berputar": tail baru dihitung sebagai (4 + 1) % 5, yang menghasilkan 0. Elemen '6' disisipkan di info[0]. State akhir berubah menjadi H 2 T 0 | 3 4 5 6 (dicetak secara sirkular), yang secara jelas menunjukkan perbedaan implementasi dari Alternatif 2.
+Saat traversal dijalankan, printPreOrder menampilkan urutan 4 2 1 3 6 5 7, yang mencerminkan struktur hierarki dari root ke daun. Sebaliknya, printPostOrder menampilkan urutan 1 3 2 5 7 6 4, yang memproses anak terlebih dahulu sebelum induknya. Ini menunjukkan bahwa urutan penyisipan data sangat mempengaruhi struktur internal BST dibandingkan dengan Soal 1.
 
 ## Kesimpulan
-Program guided ini mengimplementasikan struktur data Queue menggunakan array statis dengan prinsip FIFO (First In First Out). Implementasi menggunakan pendekatan Queue Linear Statis dimana head tetap pada posisi awal dan elemen digeser saat dequeue, dengan kapasitas terbatas sebanyak 5 elemen. Program demonstrasi menampilkan operasi enqueue untuk penambahan data, dequeue untuk penghapusan data, serta viewQueue untuk menampilkan isi antrian, memperkuat pemahaman tentang mekanisme dasar antrian dalam pemrosesan data berurutan.
+Program ini mengimplementasikan struktur data Binary Search Tree (BST) menggunakan representasi Linked List dinamis dengan prinsip hierarki di mana nilai anak kiri selalu lebih kecil dari root dan anak kanan lebih besar. Implementasi ini memanfaatkan pointer dan alokasi memori dinamis, memungkinkan struktur tree tumbuh secara fleksibel tanpa batasan kapasitas statis. Melalui tugas Guided dan Unguided, program mendemonstrasikan penerapan logika rekursif yang efisien untuk berbagai operasi seperti traversal (PreOrder, InOrder, PostOrder), pencarian data, serta perhitungan statistik tree (kedalaman dan total node). Hasil percobaan juga memperkuat pemahaman mengenai karakteristik alami BST, di mana urutan penyisipan data (insertion) sangat mempengaruhi efisiensi dan bentuk tree, menghasilkan struktur skewed (miring) pada input terurut dan struktur yang lebih seimbang (balanced) pada input acak.
 
 ## Referensi
 [1] Triase. (2020). Diktat Edisi Revisi : STRUKTUR DATA. Medan: UNIVERSTAS ISLAM NEGERI SUMATERA UTARA MEDAN. 
