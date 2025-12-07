@@ -738,9 +738,8 @@ File main.cpp adalah bagian utama yang menjalankan simulasi sistem restoran. Di 
 ## Unguided 
 
 ### 1. Soal Unguided 1-3
-![Screenshot Soal 1](
-![Screenshot Soal 2](
-![Screenshot Soal 3](
+![Screenshot Soal 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan11_Modul11/soal1.png)
+![Screenshot Soal 2-3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan11_Modul11/soal2-3.png)
 
 ```C++
 #ifndef BSTREE_H
@@ -1369,11 +1368,11 @@ Nama Golongan : Reptil
 
 
 #### Output 1
-![Screenshot Output Unguided 1](
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan11_Modul11/output%20soal1.png)
 ### Output 2
-![Screenshot Output Unguided 1](
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan11_Modul11/output%20soal%202.png)
 ### Output 3
-![Screenshot Output Unguided 1](
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan11_Modul11/output%20soal%203.png)
 
 ### Penjelasan
 Program Unguided ini bertujuan untuk mengimplementasikan struktur data Multi Linked List menggunakan bahasa C++. Multi Linked List digunakan untuk merepresentasikan hubungan One-to-Many antara Golongan Hewan (Parent) dan Data Hewan (Child).
@@ -1385,7 +1384,7 @@ File MultiLL.cpp berisi implementasi detail dari setiap fungsi. Di dalamnya terd
 File main.cpp adalah program utama yang mengeksekusi skenario. Pertama, list parent diinisialisasi dan diisi dengan data golongan. Kemudian, data hewan ditambahkan ke golongan yang sesuai. Program lalu melakukan pencarian hewan tanpa ekor dan menampilkan hasilnya. Terakhir, program menghapus golongan "Amfibi" (G004) dari list, yang secara otomatis juga menghapus data "Kodok" yang ada di dalamnya, dan menampilkan struktur akhir list.
 
 ## Kesimpulan
-Program ini mengimplementasikan struktur data Multi Linked List menggunakan bahasa C++. Multi Linked List digunakan untuk merepresentasikan hubungan One-to-Many antara Golongan Hewan (Parent) dan Data Hewan (Child). Implementasi ini memanfaatkan pointer dan alokasi memori dinamis, memungkinkan struktur list tumbuh secara fleksibel tanpa batasan kapasitas statis. Melalui tugas Guided dan Unguided, program mendemonstrasikan penerapan logika rekursif yang efisien untuk berbagai operasi seperti traversal (PreOrder, InOrder, PostOrder), pencarian data, serta perhitungan statistik tree (kedalaman dan total node). Hasil percobaan juga memperkuat pemahaman mengenai karakteristik alami BST, di mana urutan penyisipan data (insertion) sangat mempengaruhi efisiensi dan bentuk tree, menghasilkan struktur skewed (miring) pada input terurut dan struktur yang lebih seimbang (balanced) pada input acak.
+Multi Linked List digunakan untuk merepresentasikan hubungan One-to-Many antara Golongan Hewan (Parent) dan Data Hewan (Child). Implementasi ini memanfaatkan pointer dan alokasi memori dinamis, memungkinkan struktur list tumbuh secara fleksibel tanpa batasan kapasitas statis. 
 
 ## Referensi
 [1] Triase. (2020). Diktat Edisi Revisi : STRUKTUR DATA. Medan: UNIVERSTAS ISLAM NEGERI SUMATERA UTARA MEDAN. 
