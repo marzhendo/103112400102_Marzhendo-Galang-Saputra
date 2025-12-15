@@ -384,8 +384,8 @@ File main.cpp merupakan program utama yang menjalankan simulasi graph. Pada file
 ## Unguided 
 
 ### 1. Soal Unguided 1-3
-![Screenshot Soal 1](
-![Screenshot Soal 2-3](
+![Screenshot Soal 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan12_Modul12/soal1.png)
+![Screenshot Soal 2-3](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan12_Modul12/soal2-3.png)
 
 ```C++
 #ifndef GRAPH_H
@@ -642,18 +642,15 @@ BFS Traversal: A C B G F E D H
 
 
 #### Output 1
-![Screenshot Output Unguided 1](
+![Screenshot Output Unguided 1](https://github.com/marzhendo/103112400102_Marzhendo-Galang-Saputra/blob/main/Pertemuan12_Modul12/unguided/output.png)
 
 ### Penjelasan
 Program Unguided ini bertujuan untuk menerapkan secara mandiri konsep struktur data Graph menggunakan bahasa C++ dengan representasi Adjacency List. Graph yang dibangun bersifat Undirected Graph, di mana setiap node dapat terhubung ke node lain secara dua arah melalui edge. Program ini juga mengimplementasikan algoritma traversal Depth First Search (DFS) dan Breadth First Search (BFS) sebagai bentuk penerapan konsep penelusuran graph.
 
 File graph.h berisi definisi struktur data utama yang digunakan, yaitu Graph, ElmNode, dan ElmEdge. Setiap node menyimpan informasi berupa karakter, status kunjungan (visited), pointer ke daftar edge, serta pointer ke node berikutnya. File ini juga mendeklarasikan fungsi-fungsi dasar seperti pembuatan graph, alokasi node dan edge, penambahan node, penghubungan node, pencarian node, serta fungsi traversal DFS dan BFS. 
 
-graph
 
 File graph.cpp berisi implementasi dari seluruh fungsi yang telah dideklarasikan pada file header. Proses penambahan node dilakukan dengan konsep insert last pada list utama graph, sedangkan penghubungan antar node dilakukan dengan menambahkan edge pada awal daftar edge masing-masing node. Algoritma DFS diimplementasikan menggunakan struktur data stack, sedangkan BFS menggunakan queue, dengan memanfaatkan variabel visited untuk memastikan setiap node hanya dikunjungi satu kali selama proses traversal. Fungsi ResetVisited digunakan untuk mengatur ulang status kunjungan sebelum traversal dilakukan. 
-
-graph
 
 File main.cpp merupakan bagian utama program yang digunakan untuk menguji dan mendemonstrasikan implementasi graph. Pada file ini, graph diinisialisasi kemudian diisi dengan beberapa node (A sampai H) dan dihubungkan sesuai dengan skenario tertentu. Program menampilkan informasi graph dalam bentuk adjacency list, kemudian melakukan traversal DFS dan BFS dimulai dari node awal yang telah ditentukan untuk melihat urutan kunjungan node berdasarkan masing-masing algoritma traversal.
 
